@@ -49,6 +49,7 @@
             menuOrdem = new ContextMenuStrip(components);
             editarOrdemDeServiçoToolStripMenuItem = new ToolStripMenuItem();
             checkFechadas = new CheckBox();
+            toolTip1 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)dgvOrdem).BeginInit();
             menuOrdem.SuspendLayout();
             SuspendLayout();
@@ -74,6 +75,7 @@
             // 
             // btnAbrir
             // 
+            btnAbrir.AccessibleDescription = "";
             btnAbrir.Image = Properties.Resources.new_document1;
             btnAbrir.ImageAlign = ContentAlignment.MiddleLeft;
             btnAbrir.Location = new Point(780, 13);
@@ -82,6 +84,7 @@
             btnAbrir.Size = new Size(120, 33);
             btnAbrir.TabIndex = 2;
             btnAbrir.Text = "Nova OS";
+            toolTip1.SetToolTip(btnAbrir, "Abrir nova ordem de serviço");
             btnAbrir.UseVisualStyleBackColor = true;
             btnAbrir.Click += btnAbrir_Click;
             // 
@@ -95,6 +98,7 @@
             btnFechar.Size = new Size(127, 34);
             btnFechar.TabIndex = 3;
             btnFechar.Text = "Fechar OS";
+            toolTip1.SetToolTip(btnFechar, "Fechar ordem de serviço");
             btnFechar.UseVisualStyleBackColor = true;
             btnFechar.Click += btnFechar_Click;
             // 
@@ -142,7 +146,6 @@
             dgvOrdem.Size = new Size(1032, 324);
             dgvOrdem.TabIndex = 4;
             dgvOrdem.CellFormatting += dataGridView1_CellFormatting;
-            dgvOrdem.DoubleClick += dgvOrdem_DoubleClick;
             // 
             // codigo
             // 
@@ -208,7 +211,7 @@
             menuOrdem.Items.AddRange(new ToolStripItem[] { editarOrdemDeServiçoToolStripMenuItem });
             menuOrdem.Name = "menuOrdem";
             menuOrdem.RenderMode = ToolStripRenderMode.Professional;
-            menuOrdem.Size = new Size(202, 48);
+            menuOrdem.Size = new Size(202, 26);
             // 
             // editarOrdemDeServiçoToolStripMenuItem
             // 
@@ -245,8 +248,9 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ordens de Serviço";
             TopMost = true;
-            Activated += frmOrdem_Load;
+            Activated += btnPesquisar_Click;
             Load += frmOrdem_Load;
+            ParentChanged += btnPesquisar_Click;
             ((System.ComponentModel.ISupportInitialize)dgvOrdem).EndInit();
             menuOrdem.ResumeLayout(false);
             ResumeLayout(false);
@@ -271,5 +275,6 @@
         private DataGridViewTextBoxColumn observacao;
         private ContextMenuStrip menuOrdem;
         private ToolStripMenuItem editarOrdemDeServiçoToolStripMenuItem;
+        private ToolTip toolTip1;
     }
 }

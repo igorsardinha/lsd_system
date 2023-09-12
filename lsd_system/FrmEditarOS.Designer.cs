@@ -36,8 +36,8 @@
             label3 = new Label();
             label1 = new Label();
             txtObs = new RichTextBox();
-            btnCancelar = new Button();
             btnSalvar = new Button();
+            chkReabrir = new CheckBox();
             SuspendLayout();
             // 
             // lblCod
@@ -108,24 +108,11 @@
             txtObs.TabIndex = 7;
             txtObs.Text = "";
             // 
-            // btnCancelar
-            // 
-            btnCancelar.Image = Properties.Resources.prohibition;
-            btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelar.Location = new Point(513, 200);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Padding = new Padding(5, 0, 0, 0);
-            btnCancelar.Size = new Size(100, 33);
-            btnCancelar.TabIndex = 15;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
-            // 
             // btnSalvar
             // 
             btnSalvar.Image = Properties.Resources.disquete;
             btnSalvar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalvar.Location = new Point(407, 200);
+            btnSalvar.Location = new Point(513, 200);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Padding = new Padding(5, 0, 0, 0);
             btnSalvar.Size = new Size(100, 33);
@@ -134,12 +121,22 @@
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
             // 
+            // chkReabrir
+            // 
+            chkReabrir.AutoSize = true;
+            chkReabrir.Location = new Point(346, 208);
+            chkReabrir.Name = "chkReabrir";
+            chkReabrir.Size = new Size(161, 19);
+            chkReabrir.TabIndex = 15;
+            chkReabrir.Text = "Reabrir Ordem Fechada  ?";
+            chkReabrir.UseVisualStyleBackColor = true;
+            // 
             // FrmEditarOS
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(635, 245);
-            Controls.Add(btnCancelar);
+            Controls.Add(chkReabrir);
             Controls.Add(btnSalvar);
             Controls.Add(txtObs);
             Controls.Add(label1);
@@ -155,6 +152,7 @@
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "Editar Ordem de Serviço";
+            FormClosed += FrmEditarOS_FormClosed;
             Load += FrmEditarOS_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -170,7 +168,7 @@
         private Label label3;
         private Label label1;
         private RichTextBox txtObs;
-        private Button btnCancelar;
         private Button btnSalvar;
+        private CheckBox chkReabrir;
     }
 }

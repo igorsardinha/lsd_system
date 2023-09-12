@@ -1,6 +1,6 @@
 ﻿namespace lsd_system
 {
-    partial class frmFuncionarios
+    partial class frmCadastrarFuncionarios
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             pageSetupDialog1 = new PageSetupDialog();
             lblFuncao = new Label();
             lblFuncionario = new Label();
@@ -44,6 +45,7 @@
             btnExcluir = new Button();
             btnLimpar = new Button();
             label1 = new Label();
+            toolTip1 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)dgvFuncionario).BeginInit();
             SuspendLayout();
             // 
@@ -69,8 +71,8 @@
             // 
             dgvFuncionario.AllowUserToAddRows = false;
             dgvFuncionario.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = SystemColors.GradientActiveCaption;
-            dgvFuncionario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = SystemColors.GradientActiveCaption;
+            dgvFuncionario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvFuncionario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFuncionario.BackgroundColor = SystemColors.Control;
             dgvFuncionario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -150,6 +152,7 @@
             btnCadastrar.TabIndex = 11;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.TextAlign = ContentAlignment.MiddleRight;
+            toolTip1.SetToolTip(btnCadastrar, "Cadastrar / Salvar Funcionário");
             btnCadastrar.UseVisualStyleBackColor = false;
             btnCadastrar.Click += btnCadastrar_Click;
             // 
@@ -173,6 +176,7 @@
             btnExcluir.Size = new Size(120, 45);
             btnExcluir.TabIndex = 18;
             btnExcluir.Text = "Excluir";
+            toolTip1.SetToolTip(btnExcluir, "Excluir ferramenta");
             btnExcluir.UseVisualStyleBackColor = false;
             btnExcluir.Click += btnExcluir_Click;
             // 
@@ -189,6 +193,7 @@
             btnLimpar.Size = new Size(120, 45);
             btnLimpar.TabIndex = 19;
             btnLimpar.Text = "Limpar";
+            toolTip1.SetToolTip(btnLimpar, "Limpar Tela");
             btnLimpar.UseVisualStyleBackColor = false;
             btnLimpar.Click += btnLimpar_Click;
             // 
@@ -203,7 +208,7 @@
             label1.TabIndex = 20;
             label1.Text = "* Clique duas vezes para editar o funcionário";
             // 
-            // frmFuncionarios
+            // frmCadastrarFuncionarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -221,7 +226,7 @@
             Controls.Add(txtFuncionario);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
-            Name = "frmFuncionarios";
+            Name = "frmCadastrarFuncionarios";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Funcionários";
             TopMost = true;
@@ -249,5 +254,6 @@
         private CheckBox checkEditar;
         private Button btnLimpar;
         private Label label1;
+        private ToolTip toolTip1;
     }
 }

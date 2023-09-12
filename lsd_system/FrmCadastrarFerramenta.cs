@@ -26,7 +26,7 @@ namespace lsd_system
 
             if (textBox1.Text.Trim().Length == 0 || textBox2.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Preencha todos os dados", "Alerta!");
+                MessageBox.Show("Preencha todos os dados", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -46,7 +46,7 @@ namespace lsd_system
                     {
                         conexao.Open();
                         comando.ExecuteNonQuery();
-                        MessageBox.Show("Ferramenta atualizada com sucesso!");
+                        MessageBox.Show("Ferramenta atualizada com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         pesquisarAtualizar();
                         textBox1.Clear();
                         textBox2.Clear();
@@ -66,7 +66,7 @@ namespace lsd_system
                 {
                     string stringConexao = @"Data Source=.\SQLEXPRESS;Initial Catalog=oficina;User ID=sa;Password=sa";
 
-                    string sql = "INSERT INTO ferramentas (descricao,local,situacao) VALUES (@descricao,@local,0)";
+                    string sql = "INSERT INTO ferramentas (descricao,local,situacao) VALUES (@descricao,@local,'Livre')";
 
                     SqlConnection conexao = new(stringConexao);
                     SqlCommand comando = new(sql, conexao);
@@ -77,7 +77,7 @@ namespace lsd_system
                     {
                         conexao.Open();
                         comando.ExecuteNonQuery();
-                        MessageBox.Show("Ferramenta cadastrada com sucesso!");
+                        MessageBox.Show("Ferramenta cadastrada com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         pesquisarAtualizar();
                         textBox1.Clear();
                         textBox2.Clear();
@@ -174,7 +174,7 @@ namespace lsd_system
 
                 if (situacaoFerramenta != "Livre")
                 {
-                    MessageBox.Show("Não é possível editar ferrementa em uso!", "Alerta");
+                    MessageBox.Show("Não é possível editar ferrementa em uso!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textBox1.Clear();
                     textBox2.Clear();
                     idFerramenta = 0;
@@ -207,7 +207,7 @@ namespace lsd_system
             {
                 if (situacaoFerramenta != "Livre")
                 {
-                    MessageBox.Show("Não é possível excluir ferrementa em uso!", "Alerta");
+                    MessageBox.Show("Não é possível excluir ferrementa em uso!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textBox1.Clear();
                     textBox2.Clear();
                     idFerramenta = 0;
@@ -215,7 +215,7 @@ namespace lsd_system
                 else
                 {
 
-                    DialogResult dialogResult = MessageBox.Show("Deseja realmente excluir a ferramenta selecionada?", "Atenção", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Deseja realmente excluir a ferramenta selecionada?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.Yes)
                     {
                         string stringConexao = @"Data Source=.\SQLEXPRESS;Initial Catalog=oficina;User ID=sa;Password=sa";
@@ -230,7 +230,7 @@ namespace lsd_system
                         {
                             conexao.Open();
                             comando.ExecuteNonQuery();
-                            MessageBox.Show("Ferramenta excluida com sucesso!");
+                            MessageBox.Show("Ferramenta excluida com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             textBox1.Clear();
                             textBox2.Clear();
                             idFerramenta = 0;

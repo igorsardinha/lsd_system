@@ -53,7 +53,7 @@ namespace lsd_system
 
         private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmFuncionarios frmFuncions = new frmFuncionarios();
+            frmCadastrarFuncionarios frmFuncions = new frmCadastrarFuncionarios();
 
             if (verificaSeTelaAberta("frmFuncionarios"))
             {

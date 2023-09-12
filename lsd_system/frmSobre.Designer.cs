@@ -139,7 +139,7 @@
             textBoxDescription.Size = new Size(316, 147);
             textBoxDescription.TabIndex = 23;
             textBoxDescription.TabStop = false;
-            textBoxDescription.Text = "Descrição";
+            textBoxDescription.Text = "Descrição\r\n\r\nSistema criado com objetivo de gerenciar o emprestimo de ferramentas para clientes internos da empresa.";
             // 
             // okButton
             // 

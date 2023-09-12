@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnCancelar = new Button();
             btnSalvar = new Button();
             lblFerramentas = new Label();
@@ -38,6 +39,7 @@
             button2 = new Button();
             txtObs = new RichTextBox();
             label1 = new Label();
+            toolTip1 = new ToolTip(components);
             SuspendLayout();
             // 
             // btnCancelar
@@ -63,13 +65,14 @@
             btnSalvar.Size = new Size(100, 33);
             btnSalvar.TabIndex = 11;
             btnSalvar.Text = "Salvar";
+            toolTip1.SetToolTip(btnSalvar, "Salvar Ordem de Serviço");
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
             // 
             // lblFerramentas
             // 
             lblFerramentas.AutoSize = true;
-            lblFerramentas.Location = new Point(19, 111);
+            lblFerramentas.Location = new Point(19, 107);
             lblFerramentas.Name = "lblFerramentas";
             lblFerramentas.Size = new Size(72, 15);
             lblFerramentas.TabIndex = 10;
@@ -78,7 +81,7 @@
             // lblFuncionario
             // 
             lblFuncionario.AutoSize = true;
-            lblFuncionario.Location = new Point(21, 25);
+            lblFuncionario.Location = new Point(19, 22);
             lblFuncionario.Name = "lblFuncionario";
             lblFuncionario.Size = new Size(70, 15);
             lblFuncionario.TabIndex = 9;
@@ -130,11 +133,12 @@
             txtObs.Size = new Size(612, 96);
             txtObs.TabIndex = 16;
             txtObs.Text = "";
+            toolTip1.SetToolTip(txtObs, "Adicionar observações da ordem de serviço");
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(19, 181);
+            label1.Location = new Point(19, 179);
             label1.Name = "label1";
             label1.Size = new Size(74, 15);
             label1.TabIndex = 17;
@@ -177,5 +181,6 @@
         private Button button2;
         private RichTextBox txtObs;
         private Label label1;
+        private ToolTip toolTip1;
     }
 }

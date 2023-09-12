@@ -115,16 +115,9 @@ namespace lsd_system
 
         }
 
-
-
-        private void btnPesquisar_Click(object sender, EventArgs e)
+        public void btnPesquisar_Click(object sender, EventArgs e)
         {
             pesquisarBox(txtPesquisar.Text);
-        }
-
-        private void dgvOrdem_DoubleClick(object sender, EventArgs e)
-        {
-
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -138,7 +131,7 @@ namespace lsd_system
                 codFerrementa = Convert.ToInt32(dgvOrdem.CurrentRow.Cells["cod_ferramenta"].Value);
             }
 
-            DialogResult dialogResult = MessageBox.Show("Deseja realmente fechar a ordem selecionada?", "Atenção", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Deseja realmente fechar a ordem selecionada?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (dialogResult == DialogResult.Yes)
             {
 
@@ -155,7 +148,7 @@ namespace lsd_system
                 {
                     conexao.Open();
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("Ordem fechada com sucesso!", "Informação");
+                    MessageBox.Show("Ordem fechada com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmCadastrarOrdem frmCadastrarOrdem = new frmCadastrarOrdem();
                     frmCadastrarOrdem.alterarStatusFerramenta(codFerrementa, "Livre");
                     pesquisarBox(txtPesquisar.Text);
@@ -174,13 +167,6 @@ namespace lsd_system
 
         }
 
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void editarOrdemDeServiçoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmEditarOS frmEditarOS = new FrmEditarOS();
@@ -193,5 +179,6 @@ namespace lsd_system
             }
             frmEditarOS.ShowDialog();
         }
+
     }
 }

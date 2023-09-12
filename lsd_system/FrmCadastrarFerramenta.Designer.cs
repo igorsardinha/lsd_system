@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             txtPesquisar = new TextBox();
@@ -44,6 +45,7 @@
             btnExcluir = new Button();
             btnLimpar = new Button();
             btnCadastrar = new Button();
+            toolTip1 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)dgvferramentas).BeginInit();
             SuspendLayout();
             // 
@@ -87,8 +89,8 @@
             // 
             dgvferramentas.AllowUserToAddRows = false;
             dgvferramentas.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = SystemColors.GradientActiveCaption;
-            dgvferramentas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = SystemColors.GradientActiveCaption;
+            dgvferramentas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvferramentas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvferramentas.BackgroundColor = SystemColors.Control;
             dgvferramentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -173,6 +175,7 @@
             btnExcluir.Size = new Size(120, 45);
             btnExcluir.TabIndex = 20;
             btnExcluir.Text = "Excluir";
+            toolTip1.SetToolTip(btnExcluir, "Excluir ferramenta selecionada");
             btnExcluir.UseVisualStyleBackColor = false;
             btnExcluir.Click += btnExcluir_Click;
             // 
@@ -189,6 +192,7 @@
             btnLimpar.Size = new Size(120, 45);
             btnLimpar.TabIndex = 21;
             btnLimpar.Text = "Limpar";
+            toolTip1.SetToolTip(btnLimpar, "Limpar tela");
             btnLimpar.UseVisualStyleBackColor = false;
             btnLimpar.Click += btnLimpar_Click;
             // 
@@ -206,6 +210,7 @@
             btnCadastrar.TabIndex = 2;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.TextAlign = ContentAlignment.MiddleRight;
+            toolTip1.SetToolTip(btnCadastrar, "Cadastrar / Salvar Ferramenta");
             btnCadastrar.UseVisualStyleBackColor = false;
             btnCadastrar.Click += btnCadastrar_Click;
             // 
@@ -254,5 +259,6 @@
         private DataGridViewTextBoxColumn descricao;
         private DataGridViewTextBoxColumn local;
         private DataGridViewTextBoxColumn situacao;
+        private ToolTip toolTip1;
     }
 }

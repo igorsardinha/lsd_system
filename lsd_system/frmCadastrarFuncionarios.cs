@@ -12,12 +12,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace lsd_system
 {
-    public partial class frmFuncionarios : Form
+    public partial class frmCadastrarFuncionarios : Form
     {
         public string nomeFuncionario;
         public string funcaoFuncionario;
         public int idFunc = 0;
-        public frmFuncionarios()
+        public frmCadastrarFuncionarios()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace lsd_system
         {
             if (txtFuncionario.Text.Trim().Length == 0 || txtFuncao.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Preencha todos os dados", "Alerta!");
+                MessageBox.Show("Preencha todos os dados", "Alerta!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -46,7 +46,7 @@ namespace lsd_system
                     {
                         conexao.Open();
                         comando.ExecuteNonQuery();
-                        MessageBox.Show("Funcionário atualizado com sucesso!", "Informação");
+                        MessageBox.Show("Funcionário atualizado com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         pesquisarAtualizar();
                         txtFuncao.Clear();
                         txtFuncionario.Clear();
@@ -77,7 +77,7 @@ namespace lsd_system
                     {
                         conexao.Open();
                         comando.ExecuteNonQuery();
-                        MessageBox.Show("Funcionário cadastrado com sucesso!", "Informação");
+                        MessageBox.Show("Funcionário cadastrado com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         pesquisarAtualizar();
                         txtFuncao.Clear();
                         txtFuncionario.Clear();
@@ -213,7 +213,7 @@ namespace lsd_system
         {
             if (idFunc > 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Deseja realmente excluir o funcionario selecionado?", "Atenção", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Deseja realmente excluir o funcionario selecionado?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
                 {
                     string stringConexao = @"Data Source=.\SQLEXPRESS;Initial Catalog=oficina;User ID=sa;Password=sa";
@@ -228,7 +228,7 @@ namespace lsd_system
                     {
                         conexao.Open();
                         comando.ExecuteNonQuery();
-                        MessageBox.Show("Funcionário excluido com sucesso!", "Informação");
+                        MessageBox.Show("Funcionário excluido com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtFuncao.Clear();
                         txtFuncionario.Clear();
                         idFunc = 0;

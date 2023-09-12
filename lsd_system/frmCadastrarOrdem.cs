@@ -51,16 +51,6 @@ namespace lsd_system
                 codigoFerramenta = frmPesquisa.codigoFerramenta;
 
             }
-
-
-
-
-            /*FrmCadastrarFerramenta frmCadastrarFerramenta = new FrmCadastrarFerramenta();
-
-            if (frmCadastrarFerramenta.ShowDialog() == DialogResult.OK)
-            {
-                txtFerramentas.Text = frmCadastrarFerramenta.nomeFerramenta;
-            }*/
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)

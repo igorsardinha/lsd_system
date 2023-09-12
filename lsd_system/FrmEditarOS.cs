@@ -20,13 +20,14 @@ namespace lsd_system
 
 
         public int idOrdem;
+        public int codFerrementa;
 
 
         void carregaDados(string codigoOs)
         {
             string stringConexao = @"Data Source=.\SQLEXPRESS;Initial Catalog=oficina;User ID=sa;Password=sa";
 
-            string query = "SELECT desc_ferramenta,funcionario,observacao from ordens where codigo = @codigo;";
+            string query = "SELECT desc_ferramenta,funcionario,observacao,cod_ferramenta from ordens where codigo = @codigo;";
 
             SqlConnection connection = new SqlConnection(stringConexao);
             SqlCommand command = new SqlCommand(query, connection);
@@ -42,6 +43,7 @@ namespace lsd_system
                     txtFunc.Text = da.GetValue(1).ToString();
                     txtFerramenta.Text = da.GetValue(0).ToString();
                     txtObs.Text = da.GetValue(2).ToString();
+                    codFerrementa = Convert.ToInt32(da.GetValue(3));
                 }
 
             }
@@ -85,8 +87,37 @@ namespace lsd_system
             {
                 conexao.Open();
                 comando.ExecuteNonQuery();
-                MessageBox.Show("Ordem editada com sucesso!","Informação");
+                MessageBox.Show("Ordem editada com sucesso!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmOrdem frmOrdem = new frmOrdem();
+                frmOrdem.pesquisarBox("");
                 this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
+        public void reabrirOrdem(int id)
+        {
+            string stringConexao = @"Data Source=.\SQLEXPRESS;Initial Catalog=oficina;User ID=sa;Password=sa";
+            string sql = "update ordens set situacao = 'Aberto', data_fechamento = NULL where codigo = @id";
+
+            SqlConnection conexao = new(stringConexao);
+            SqlCommand comando = new(sql, conexao);
+            comando.Parameters.AddWithValue("@id", id);
+
+            try
+            {
+                conexao.Open();
+                comando.ExecuteNonQuery();
+                frmCadastrarOrdem frmCadastrarOrdem = new frmCadastrarOrdem();
+                frmCadastrarOrdem.alterarStatusFerramenta(codFerrementa, "Em uso");
             }
             catch (Exception ex)
             {
@@ -100,7 +131,24 @@ namespace lsd_system
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            atualizarObs(Convert.ToInt32(txtCodOS.Text),txtObs.Text);
+            if (chkReabrir.Checked)
+            {
+                if (MessageBox.Show("Deseja reabrir ordem editada?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    reabrirOrdem(Convert.ToInt32(txtCodOS.Text));
+                    atualizarObs(Convert.ToInt32(txtCodOS.Text), txtObs.Text);
+                }
+            }
+            else
+            {
+                atualizarObs(Convert.ToInt32(txtCodOS.Text), txtObs.Text);
+            }
+        }
+
+        private void FrmEditarOS_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+
         }
     }
 }

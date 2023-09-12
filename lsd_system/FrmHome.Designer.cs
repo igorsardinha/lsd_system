@@ -39,7 +39,6 @@
             ferramentasToolStripMenuItem = new ToolStripMenuItem();
             OrdemToolStripMenuItem = new ToolStripMenuItem();
             abrirOrdemToolStripMenuItem = new ToolStripMenuItem();
-            relatórioToolStripMenuItem = new ToolStripMenuItem();
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             timer3 = new System.Windows.Forms.Timer(components);
@@ -117,7 +116,7 @@
             // 
             // OrdemToolStripMenuItem
             // 
-            OrdemToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { abrirOrdemToolStripMenuItem, relatórioToolStripMenuItem });
+            OrdemToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { abrirOrdemToolStripMenuItem });
             OrdemToolStripMenuItem.Name = "OrdemToolStripMenuItem";
             OrdemToolStripMenuItem.Size = new Size(140, 24);
             OrdemToolStripMenuItem.Text = "Ordem de Serviço";
@@ -126,15 +125,9 @@
             // 
             abrirOrdemToolStripMenuItem.Image = Properties.Resources.checklist;
             abrirOrdemToolStripMenuItem.Name = "abrirOrdemToolStripMenuItem";
-            abrirOrdemToolStripMenuItem.Size = new Size(161, 24);
+            abrirOrdemToolStripMenuItem.Size = new Size(180, 24);
             abrirOrdemToolStripMenuItem.Text = "Abrir Ordem";
             abrirOrdemToolStripMenuItem.Click += ordemDeServiçoToolStripMenuItem_Click;
-            // 
-            // relatórioToolStripMenuItem
-            // 
-            relatórioToolStripMenuItem.Name = "relatórioToolStripMenuItem";
-            relatórioToolStripMenuItem.Size = new Size(161, 24);
-            relatórioToolStripMenuItem.Text = "Relatório";
             // 
             // txtHora
             // 
@@ -291,7 +284,6 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
         private ToolStripMenuItem abrirOrdemToolStripMenuItem;
-        private ToolStripMenuItem relatórioToolStripMenuItem;
         private Label txtHora;
         private System.Windows.Forms.Timer timer4;
         private ToolStrip toolStrip1;
