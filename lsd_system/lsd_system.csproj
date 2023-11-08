@@ -2,13 +2,22 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ReferencePath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win64_x64\dotnet\</ReferencePath>
-    <UseWPF>True</UseWPF>
-    <NoWin32Manifest>true</NoWin32Manifest>
+    <UseWPF>False</UseWPF>
+    <SignAssembly>False</SignAssembly>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackAsTool>True</PackAsTool>
+    <IsPublishable>True</IsPublishable>
+    <AnalysisLevel>6.0-minimum</AnalysisLevel>
+    <EnableNETAnalyzers>False</EnableNETAnalyzers>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,7 +27,8 @@
   <ItemGroup>
     <PackageReference Include="Clock" Version="1.0.3" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
-    <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms" Version="150.1586.0" />
+    <PackageReference Include="ReportViewer.WebForms" Version="12.0.2402.20" />
+    <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.18" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 

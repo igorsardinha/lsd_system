@@ -20,7 +20,8 @@ namespace lsd_system
             }
             else
             {
-                MessageBox.Show("Senha ou usuário inválido!");
+                MessageBox.Show("Senha ou usuário inválido!","Erro ao logar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
@@ -36,7 +37,7 @@ namespace lsd_system
                 }
                 else
                 {
-                    MessageBox.Show("Senha ou usuário inválido!");
+                    MessageBox.Show("Senha ou usuário inválido!", "Erro ao logar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

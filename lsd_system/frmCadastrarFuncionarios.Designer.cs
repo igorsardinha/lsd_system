@@ -63,9 +63,9 @@
             lblFuncionario.AutoSize = true;
             lblFuncionario.Location = new Point(11, 362);
             lblFuncionario.Name = "lblFuncionario";
-            lblFuncionario.Size = new Size(70, 15);
+            lblFuncionario.Size = new Size(123, 15);
             lblFuncionario.TabIndex = 16;
-            lblFuncionario.Text = "Funcionario";
+            lblFuncionario.Text = "Nome do Funcionário";
             // 
             // dgvFuncionario
             // 
